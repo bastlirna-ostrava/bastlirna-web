@@ -125,7 +125,7 @@
     stroke-dasharray: 1;
     animation: drawView linear both;
     animation-timeline: view();
-    animation-range: entry 10% cover 45%;
+    animation-range: entry 0% entry 100%;
   }
 }
 @keyframes viewIn {
