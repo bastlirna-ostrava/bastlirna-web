@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { DiscordAction } from "@/components/shared/discord-action";
@@ -5,16 +7,62 @@ import { SiteHeader } from "@/components/shared/site-header";
 import { TerminalRule } from "@/components/shared/terminal-rule";
 import styles from "./home-page.module.css";
 
+const vars = (values: Record<string, string | number>) => values as CSSProperties;
+
+const HERO_TRACES = [
+  "M205 0v76l-43 43v51l-53 53v75l-45 45v37",
+  "M175 0v65l-42 42v58l-55 55v65l-52 52v43",
+  "M145 0v55l-42 42v56l-52 52v80L0 336",
+];
+
 const CircuitTrace = () => (
-  <svg viewBox="0 0 210 380" fill="none" className="pointer-events-none absolute right-[39%] top-16 hidden h-[380px] w-[210px] text-primary/30 lg:block" aria-hidden="true">
+  <svg viewBox="0 0 210 380" fill="none" className="pointer-events-none absolute -left-[150px] top-10 hidden h-[228px] w-[126px] text-primary/40 xl:block" aria-hidden="true">
     <g stroke="currentColor" strokeWidth="1">
-      <path d="M205 0v76l-43 43v51l-53 53v75l-45 45v37" />
-      <path d="M175 0v65l-42 42v58l-55 55v65l-52 52v43" />
-      <path d="M145 0v55l-42 42v56l-52 52v80L0 336" />
-      <path d="M205 125h-40M132 165h-30M77 249h-34" />
+      {HERO_TRACES.map((d) => <path key={d} d={d} pathLength={1} className={styles.trace} />)}
+      <path d="M205 125h-40M132 165h-30M77 249h-34" pathLength={1} className={styles.trace} />
+    </g>
+    <g stroke="#48ed13" strokeWidth="2">
+      {HERO_TRACES.map((d, i) => <path key={d} d={d} pathLength={1} className={styles.signal} style={vars({ "--delay": `${1.6 + i * 0.9}s` })} />)}
     </g>
     <g fill="#050807" stroke="currentColor"><circle cx="162" cy="119" r="4" /><circle cx="103" cy="165" r="4" /><circle cx="78" cy="249" r="4" /><circle cx="26" cy="337" r="4" /></g>
   </svg>
+);
+
+const BOARD_PADS = [
+  { label: "HW", x: 34, y: 54, d: "M120 118H72V54H54" },
+  { label: "3D", x: 306, y: 54, d: "M240 118h48V54h18" },
+  { label: "DEV", x: 34, y: 246, d: "M120 182H90v64H54" },
+  { label: "AI", x: 306, y: 246, d: "M240 182h30v64h36" },
+];
+
+const Board = ({ caption }: { caption: string }) => (
+  <figure className="m-0">
+    <svg viewBox="0 0 360 300" fill="none" className="w-full max-w-[420px] text-primary" aria-hidden="true">
+      <rect x="1" y="1" width="358" height="298" stroke="currentColor" strokeOpacity=".5" />
+      {[[16, 16], [344, 16], [16, 284], [344, 284]].map(([cx, cy]) => <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="5" stroke="currentColor" strokeOpacity=".6" />)}
+      <g stroke="currentColor" strokeWidth="1.5">
+        {BOARD_PADS.map((pad) => <path key={pad.label} d={pad.d} pathLength={1} className={styles.traceOnView} />)}
+        <path d="M180 214v40h-40M180 86V46h60" pathLength={1} className={styles.traceOnView} />
+      </g>
+      <g stroke="#f3b21b" strokeWidth="2.5">
+        {BOARD_PADS.map((pad, i) => <path key={pad.label} d={pad.d} pathLength={1} className={styles.signal} style={vars({ "--delay": `${i * 0.7}s` })} />)}
+      </g>
+      <rect x="120" y="86" width="120" height="128" fill="#0b110c" stroke="currentColor" strokeWidth="1.5" />
+      {[0, 1, 2, 3, 4, 5].map((i) => <g key={i} fill="currentColor"><rect x="110" y={96 + i * 20} width="10" height="4" /><rect x="240" y={96 + i * 20} width="10" height="4" /></g>)}
+      <text x="180" y="146" textAnchor="middle" fill="currentColor" fontFamily="var(--font-mono)" fontSize="14">BO-01</text>
+      <text x="180" y="166" textAnchor="middle" fill="#a4aca1" fontFamily="var(--font-mono)" fontSize="9">ostrava</text>
+      <rect x="130" y="96" width="6" height="6" fill="currentColor" />
+      {BOARD_PADS.map((pad) => (
+        <g key={pad.label}>
+          <rect x={pad.x - 20} y={pad.y - 14} width="40" height="28" stroke="currentColor" fill="#050807" />
+          <text x={pad.x} y={pad.y + 4} textAnchor="middle" fill="#f0f1ed" fontFamily="var(--font-mono)" fontSize="11">{pad.label}</text>
+        </g>
+      ))}
+      <rect x="132" y="248" width="12" height="12" fill="#f3b21b" className={styles.led} />
+      <rect x="236" y="40" width="12" height="12" fill="#48ed13" className={styles.led} style={vars({ "--delay": ".7s" })} />
+    </svg>
+    <figcaption className="mt-4 text-xs text-muted">{caption}</figcaption>
+  </figure>
 );
 
 export const HomePage = async ({ inviteUrl }: { inviteUrl?: string }) => {
@@ -25,24 +73,51 @@ export const HomePage = async ({ inviteUrl }: { inviteUrl?: string }) => {
     title: t(`program${["One", "Two", "Three"][number - 1]}Title`),
     text: t(`program${["One", "Two", "Three"][number - 1]}Text`),
   }));
+  const prompt = t("prompt");
+  const topics = t("topics").split("|").map((topic) => topic.trim());
 
   return (
     <main className="overflow-hidden bg-background text-foreground">
       <SiteHeader />
-      <section className="relative min-h-[670px] overflow-hidden border-b border-primary/30 sm:min-h-[720px]">
-        <div className={`${styles.heroPhoto} absolute inset-0`} aria-hidden="true" />
+      <section className="relative overflow-hidden border-b border-primary/30">
         <div className={`${styles.grid} pointer-events-none absolute inset-0`} aria-hidden="true" />
-        <CircuitTrace />
-        <div className="relative mx-auto flex min-h-[670px] max-w-7xl flex-col justify-between px-5 py-10 sm:min-h-[720px] sm:px-8 sm:py-14 lg:px-12">
-          <TerminalRule />
-          <div className="max-w-[690px] pb-10 sm:pb-14">
-            <h1 className="text-[clamp(3.4rem,7.5vw,6.8rem)] leading-[.98] font-normal tracking-[-.07em]"><span className="block">{site("nameFirst")}</span><span className="block text-primary">{site("nameSecond")}</span></h1>
-            <p className="mt-8 max-w-[34ch] text-base leading-7 text-white sm:text-xl sm:leading-8">{t("intro")}</p>
-            <p className="mt-7 text-sm leading-6 text-amber sm:text-base">{t("firstEvent")}</p>
-            <p className="mt-1 max-w-[40ch] text-sm leading-6 text-white/70">{t("firstEventDetail")}</p>
-            <div className="mt-8 flex flex-wrap items-start gap-5"><DiscordAction inviteUrl={inviteUrl} /><Link href="/#program" className="inline-flex min-h-12 items-center gap-2 border-b border-primary/60 px-1 text-sm text-primary hover:border-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">{t("seeProgram")} <span aria-hidden="true">↓</span></Link></div>
+        <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-10 sm:px-8 sm:py-14 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:gap-16 lg:px-12 lg:py-20">
+          <div>
+            <p className="text-xs text-primary sm:text-sm"><span aria-hidden="true">&gt; </span><span className={styles.prompt} style={vars({ "--chars": prompt.length })}>{prompt}</span></p>
+            <h1 className="mt-8 text-[clamp(3.2rem,7vw,6.4rem)] leading-[.98] font-normal tracking-[-.07em]">
+              <span className="block"><span className={styles.revealLine} style={vars({ "--chars": 9, "--delay": "1.3s" })}>{site("nameFirst")}</span></span>
+              <span className="block text-primary"><span className={styles.revealLine} style={vars({ "--chars": 7, "--delay": "1.85s" })}>{site("nameSecond")}</span><span className={styles.cursor} aria-hidden="true" /></span>
+            </h1>
+            <div className={styles.fadeIn} style={vars({ "--delay": "2.4s" })}>
+              <p className="mt-8 max-w-[34ch] text-base leading-7 text-white sm:text-xl sm:leading-8">{t("intro")}</p>
+              <p className="mt-7 text-sm leading-6 text-amber sm:text-base">{t("firstEvent")}</p>
+              <p className="mt-1 max-w-[40ch] text-sm leading-6 text-white/70">{t("firstEventDetail")}</p>
+              <div className="mt-8 flex flex-wrap items-start gap-5"><DiscordAction inviteUrl={inviteUrl} /><Link href="/#program" className="inline-flex min-h-12 items-center gap-2 border-b border-primary/60 px-1 text-sm text-primary hover:border-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">{t("seeProgram")} <span aria-hidden="true">↓</span></Link></div>
+            </div>
           </div>
-          <div className="flex items-center gap-3 border-t border-primary/30 pt-5 text-xs text-primary sm:text-sm"><span aria-hidden="true">$</span><span className="h-px w-10 bg-primary/60" />{t("topics")}</div>
+
+          <figure className={`${styles.window} relative m-0 w-full max-w-[520px] justify-self-center lg:justify-self-end`}>
+            <CircuitTrace />
+            <div className={`${styles.windowBar} flex items-center gap-3 px-3 py-2 text-[11px] text-muted`} aria-hidden="true">
+              <span className="flex gap-1.5"><span className={styles.dot} /><span className={styles.dot} /><span className={styles.dot} /></span>
+              <span className="truncate">{t("windowTitle")}</span>
+            </div>
+            <div className={styles.screen}>
+              <Image src="/workshop-dither-square.png" alt={t("windowAlt")} width={400} height={400} unoptimized priority className={`${styles.pixels} block aspect-square w-full`} />
+              <span className={styles.scanline} aria-hidden="true" />
+              <span className={styles.crosshair} aria-hidden="true" />
+            </div>
+            <figcaption className={`${styles.windowBar} flex items-center justify-between gap-3 border-t border-b-0 px-3 py-2 text-[11px]`}>
+              <span className="text-primary">{t("windowStatus")}</span>
+              <span className="text-amber" aria-hidden="true">49.83N 18.29E</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div className="relative mx-auto max-w-7xl px-5 pb-8 sm:px-8 lg:px-12">
+          <ul className="flex flex-wrap items-center gap-2 border-t border-primary/30 pt-5 text-xs text-primary sm:text-sm" aria-label={t("topics")}>
+            <li aria-hidden="true" className="mr-2">$ ls ./temata</li>
+            {topics.map((topic) => <li key={topic} className={`${styles.tag} border border-primary/40 px-2 py-1`}>{topic}</li>)}
+          </ul>
         </div>
       </section>
 
@@ -50,16 +125,34 @@ export const HomePage = async ({ inviteUrl }: { inviteUrl?: string }) => {
         <div className={`${styles.grid} pointer-events-none absolute inset-0`} aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
           <div><TerminalRule /><h2 className="mt-8 max-w-[11ch] text-4xl leading-[1.08] tracking-[-.06em] sm:text-6xl">{t("programTitle")}</h2><p className="mt-7 max-w-[42ch] text-sm leading-7 text-muted sm:text-base">{t("programIntro")}</p><p className="mt-7 text-sm text-amber">{t("firstEvent")}</p></div>
-          <div className="border-t border-primary/50">
-            {program.map((item) => <article key={item.number} className="grid gap-4 border-b border-primary/30 py-7 sm:grid-cols-[54px_1fr] sm:gap-7 sm:py-9"><span className="text-sm text-primary">0{item.number}</span><div><h3 className="text-xl leading-tight text-white sm:text-2xl">{item.title}</h3><p className="mt-3 max-w-[45ch] text-sm leading-7 text-muted">{item.text}</p></div></article>)}
-          </div>
+          <ol className="border-t border-primary/50">
+            {program.map((item) => (
+              <li key={item.number} className={`${styles.row} ${styles.onView} grid gap-4 border-b border-primary/30 px-1 py-7 sm:grid-cols-[64px_1fr] sm:gap-7 sm:py-9`}>
+                <span className="text-sm text-primary" aria-hidden="true">[0{item.number}]</span>
+                <div><h3 className={`${styles.rowTitle} text-xl leading-tight text-white sm:text-2xl`}>{item.title}</h3><p className="mt-3 max-w-[45ch] text-sm leading-7 text-muted">{item.text}</p></div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      <section id="o-bastlirne" className="scroll-mt-8 px-5 py-20 sm:px-8 lg:px-12 lg:py-28"><div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-24"><TerminalRule /><div><h2 className="max-w-[18ch] text-4xl leading-[1.1] tracking-[-.06em] sm:text-5xl">{t("aboutTitle")}</h2><p className="mt-7 max-w-[60ch] text-sm leading-8 text-muted sm:text-base">{t("aboutText")}</p></div></div></section>
+      <section id="o-bastlirne" className="scroll-mt-8 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
+          <Board caption={t("boardCaption")} />
+          <div><TerminalRule /><h2 className="mt-8 max-w-[18ch] text-4xl leading-[1.1] tracking-[-.06em] sm:text-5xl">{t("aboutTitle")}</h2><p className="mt-7 max-w-[60ch] text-sm leading-8 text-muted sm:text-base">{t("aboutText")}</p></div>
+        </div>
+      </section>
 
-      <footer className="border-t border-primary/40 bg-surface px-5 py-16 sm:px-8 lg:px-12"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-9 lg:flex-row lg:items-end"><div><TerminalRule /><h2 className="mt-6 max-w-[25ch] text-2xl leading-tight sm:text-3xl">{t("footerTitle")}</h2><p className="mt-4 max-w-[55ch] text-sm leading-7 text-muted">{t("footerText")}</p></div><DiscordAction inviteUrl={inviteUrl} variant="outline" /></div></footer>
+      <footer className="border-t border-primary/40 bg-surface px-5 py-16 sm:px-8 lg:px-12">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-9 lg:flex-row lg:items-end">
+          <div>
+            <p className="text-xs text-primary sm:text-sm" aria-hidden="true">$ {t("footerPrompt")}<span className={styles.cursor} /></p>
+            <h2 className="mt-6 max-w-[25ch] text-2xl leading-tight sm:text-3xl">{t("footerTitle")}</h2>
+            <p className="mt-4 max-w-[55ch] text-sm leading-7 text-muted">{t("footerText")}</p>
+          </div>
+          <DiscordAction inviteUrl={inviteUrl} variant="outline" />
+        </div>
+      </footer>
     </main>
   );
 };
-

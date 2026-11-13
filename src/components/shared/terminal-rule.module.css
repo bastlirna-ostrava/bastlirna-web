@@ -1,0 +1,19 @@
+/* Flat dashed bus line with a single data packet stepping along it. */
+.track {
+  position: relative;
+  display: block;
+  width: 10rem;
+  height: 0;
+  border-top: 2px dashed var(--color-border);
+}
+.packet {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 10px;
+  height: 6px;
+  background: var(--color-primary);
+  animation: packet 2.4s steps(15, end) infinite;
+}
+@keyframes packet { to { transform: translateX(150px); } }
+@media (prefers-reduced-motion: reduce) { .packet { animation: none; } }

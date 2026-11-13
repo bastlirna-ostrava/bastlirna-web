@@ -1,13 +1,141 @@
-.heroPhoto {
-  background-image: linear-gradient(90deg, #050807 0%, #050807 27%, #050807dc 43%, #05080733 72%, #05080722 100%), url('/workshop-hero.jpg');
-  background-size: cover;
-  background-position: center;
-}
+/* Visual language: flat fills only (no gradients, no shadows). Motion is stepped like a terminal. */
+
 .grid {
-  background-image: linear-gradient(to right, #42c6160a 1px, transparent 1px), linear-gradient(to bottom, #42c6160a 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-@media (max-width: 767px) {
-  .heroPhoto { background-image: linear-gradient(90deg, #050807e8, #050807bc), url('/workshop-hero.jpg'); background-position: 65% center; }
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M48 0H0v48' fill='none' stroke='%2348ed13' stroke-opacity='.06'/%3E%3C/svg%3E");
 }
 
+/* --- typing --- */
+.prompt {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  width: calc(var(--chars) * 1ch);
+  animation: type calc(var(--chars) * 45ms) steps(var(--chars), end) 200ms both;
+}
+@keyframes type { from { width: 0; } }
+
+.revealLine {
+  display: inline-block;
+  animation: revealLine 540ms steps(var(--chars), end) both;
+  animation-delay: var(--delay, 0ms);
+}
+@keyframes revealLine { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+
+.cursor {
+  display: inline-block;
+  width: .55em;
+  height: .9em;
+  margin-left: .08em;
+  vertical-align: -.06em;
+  background: var(--color-primary);
+  animation: blink 1.05s steps(1, end) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.fadeIn {
+  animation: stepIn 600ms steps(4, end) both;
+  animation-delay: var(--delay, 0ms);
+}
+@keyframes stepIn { from { opacity: 0; transform: translateY(8px); } }
+
+/* --- hero viewport window --- */
+.window { border: 1px solid var(--color-border); background: var(--color-background); }
+.windowBar { border-bottom: 1px solid var(--color-border); }
+.dot { width: 8px; height: 8px; border: 1px solid var(--color-primary); }
+.dot:first-child { background: var(--color-primary); }
+
+.screen { position: relative; overflow: hidden; }
+.pixels {
+  image-rendering: pixelated;
+  animation: scanIn 1.2s steps(24, end) 500ms both;
+}
+@keyframes scanIn { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+
+.scanline {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 2px;
+  background: var(--color-primary);
+  opacity: .55;
+  animation: scan 4s steps(80, end) 1.7s infinite;
+}
+@keyframes scan { from { top: 0; } to { top: 100%; } }
+
+.crosshair {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--color-amber);
+  animation: target 9s steps(1, end) 1.7s infinite;
+}
+.crosshair::before, .crosshair::after { content: ""; position: absolute; background: var(--color-amber); }
+.crosshair::before { left: 50%; top: -10px; bottom: -10px; width: 1px; }
+.crosshair::after { top: 50%; left: -10px; right: -10px; height: 1px; }
+@keyframes target {
+  0% { left: 52%; top: 56%; }
+  33% { left: 39%; top: 13%; }
+  66% { left: 76%; top: 42%; }
+}
+
+/* --- traces --- */
+.trace {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.6s steps(32, end) 300ms forwards;
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+.signal {
+  stroke-dasharray: .06 .94;
+  stroke-dashoffset: 1;
+  animation: signal 2.8s linear infinite;
+  animation-delay: var(--delay, 1.6s);
+}
+@keyframes signal { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+.led { animation: blink 1.4s steps(1, end) infinite; animation-delay: var(--delay, 0ms); }
+
+/* --- program rows --- */
+.row { position: relative; transition: background-color 120ms steps(2, end); }
+.row:hover { background: var(--color-surface); }
+.row::before {
+  content: ">";
+  position: absolute;
+  left: -1.25rem;
+  top: 1.75rem;
+  color: var(--color-primary);
+  opacity: 0;
+}
+.row:hover::before { opacity: 1; animation: blink 1s steps(1, end) infinite; }
+.row:hover .rowTitle { color: var(--color-primary); }
+
+.tag { transition: background-color 80ms steps(1, end), color 80ms steps(1, end); }
+.tag:hover { background: var(--color-primary); color: var(--color-background); }
+
+/* Scroll-driven reveals where supported; content stays visible elsewhere. */
+@supports (animation-timeline: view()) {
+  .onView {
+    animation: viewIn linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 70%;
+  }
+  .traceOnView {
+    stroke-dasharray: 1;
+    animation: drawView linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 45%;
+  }
+}
+@keyframes viewIn {
+  from { clip-path: inset(0 0 100% 0); opacity: 0; }
+  to { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+@keyframes drawView { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .prompt, .revealLine, .fadeIn, .pixels, .trace, .onView, .traceOnView { animation: none; clip-path: none; stroke-dashoffset: 0; }
+  .cursor, .scanline, .signal, .led, .crosshair, .row:hover::before { animation: none; }
+  .scanline, .signal { display: none; }
+}

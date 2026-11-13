@@ -14,6 +14,12 @@
     "home": "Zpět na úvod"
   },
   "home": {
+    "prompt": "./bastlirna --mesto=ostrava",
+    "windowTitle": "dilna.png · 400×400 · dither=bayer4",
+    "windowStatus": "[ok] tiskárna online",
+    "windowAlt": "Pixelová ilustrace dílny: 3D tiskárna, lampa a pracovní stůl, v pozadí ostravská těžní věž.",
+    "boardCaption": "rev 0.1 · osazujeme za pochodu",
+    "footerPrompt": "./pripojit --discord",
     "intro": "Pojďme v Ostravě pravidelně stavět věci spolu.",
     "firstEvent": "první setkání ve středu",
     "firstEventDetail": "Čas a místo upřesníme na Discordu.",
