@@ -1,0 +1,47 @@
+{
+  "site": {
+    "name": "Bastlírna Ostrava",
+    "nameFirst": "bastlírna",
+    "nameSecond": "ostrava",
+    "description": "Komunita lidí, kteří v Ostravě staví věci a chtějí se potkávat nad vlastními projekty."
+  },
+  "nav": {
+    "homeLabel": "Bastlírna Ostrava – úvod",
+    "program": "Program",
+    "about": "O Bastlírně",
+    "discord": "Přidat se na Discord",
+    "qr": "QR kód",
+    "home": "Zpět na úvod"
+  },
+  "home": {
+    "intro": "Pojďme v Ostravě pravidelně stavět věci spolu.",
+    "firstEvent": "první setkání ve středu",
+    "firstEventDetail": "Čas a místo upřesníme na Discordu.",
+    "seeProgram": "Program prvního setkání",
+    "topics": "HW | 3D tisk | dev | DevOps | AI | design",
+    "join": "Přidat se na Discord",
+    "inviteMissing": "Pozvánku na Discord brzy doplníme.",
+    "programTitle": "co budeme dělat",
+    "programIntro": "Malý experiment. Sejdeme se nad rozdělanými věcmi a společně vymyslíme další rytmus.",
+    "programOneTitle": "kolečko",
+    "programOneText": "Kdo jsme, co stavíme a s čím bychom si chtěli pomoci.",
+    "programTwoTitle": "ukázky projektů",
+    "programTwoText": "Jedna až dvě krátké ukázky. Hotové věci nejsou podmínkou.",
+    "programThreeTitle": "volná diskuse",
+    "programThreeText": "Nápady, otázky a domluva na dalším setkání.",
+    "aboutTitle": "nejdřív lidé a projekty",
+    "aboutText": "Bastlírna je pokus o pravidelné setkávání napříč obory. Ukazovat rozdělané věci, pomáhat si a učit se od sebe. Prostor nebo společný lab má smysl až ve chvíli, kdy ho komunita opravdu potřebuje.",
+    "footerTitle": "co bys chtěl stavět?",
+    "footerText": "Podobu Bastlírny vymyslíme společně. Připoj se na Discord, i když máš zatím jen nápad."
+  },
+  "qr": {
+    "pageTitle": "QR kód",
+    "title": "bastlírna do telefonu",
+    "description": "Naskenuj kód a otevři web Bastlírny Ostrava.",
+    "url": "bastlirna-ostrava.vantuch.dev",
+    "open": "otevřít web",
+    "back": "zpět na úvod",
+    "alt": "QR kód vedoucí na bastlirna-ostrava.vantuch.dev"
+  }
+}
+

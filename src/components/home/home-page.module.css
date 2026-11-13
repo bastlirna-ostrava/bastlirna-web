@@ -1,0 +1,13 @@
+.heroPhoto {
+  background-image: linear-gradient(90deg, #050807 0%, #050807 27%, #050807dc 43%, #05080733 72%, #05080722 100%), url('/workshop-hero.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.grid {
+  background-image: linear-gradient(to right, #42c6160a 1px, transparent 1px), linear-gradient(to bottom, #42c6160a 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+@media (max-width: 767px) {
+  .heroPhoto { background-image: linear-gradient(90deg, #050807e8, #050807bc), url('/workshop-hero.jpg'); background-position: 65% center; }
+}
+
