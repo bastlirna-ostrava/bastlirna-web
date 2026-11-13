@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
+import { LogoMark } from "@/components/shared/logo-mark";
 import { DiscordAction } from "@/components/shared/discord-action";
 import { SiteHeader } from "@/components/shared/site-header";
 import { TerminalRule } from "@/components/shared/terminal-rule";
@@ -146,6 +147,7 @@ export const HomePage = async ({ inviteUrl }: { inviteUrl?: string }) => {
       <footer className="border-t border-primary/40 bg-surface px-5 py-16 sm:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-9 lg:flex-row lg:items-end">
           <div>
+            <LogoMark className="mb-8 h-12 w-16" />
             <p className="text-xs text-primary sm:text-sm" aria-hidden="true">$ {t("footerPrompt")}<span className={styles.cursor} /></p>
             <h2 className="mt-6 max-w-[25ch] text-2xl leading-tight sm:text-3xl">{t("footerTitle")}</h2>
             <p className="mt-4 max-w-[55ch] text-sm leading-7 text-muted">{t("footerText")}</p>
