@@ -67,7 +67,11 @@ const Board = ({ caption }: { caption: string }) => (
   </figure>
 );
 
-export const HomePage = async ({ inviteUrl, eventUrl }: { inviteUrl?: string; eventUrl?: string }) => {
+const RegistrationAction = ({ url, label, className }: { url: string; label: string; className?: string }) => (
+  <Button asChild className={className}><a href={url} target="_blank" rel="noopener noreferrer">{label} <span aria-hidden="true">↗</span></a></Button>
+);
+
+export const HomePage = async ({ inviteUrl, eventUrl, registrationUrl }: { inviteUrl?: string; eventUrl?: string; registrationUrl?: string }) => {
   const t = await getTranslations("home");
   const site = await getTranslations("site");
   const program = (["One", "Two", "Three", "Four"] as const).map((key, index) => ({
@@ -95,7 +99,7 @@ export const HomePage = async ({ inviteUrl, eventUrl }: { inviteUrl?: string; ev
               <p className="mt-8 max-w-[34ch] text-base leading-7 text-white sm:text-xl sm:leading-8">{t("intro")}</p>
               <p className="mt-7 text-sm leading-6 text-amber sm:text-base">{t("firstEvent")}</p>
               <p className="mt-1 max-w-[40ch] text-sm leading-6 text-white/70">{t("firstEventDetail")}</p>
-              <div className="mt-8 flex flex-wrap items-start gap-5"><DiscordAction inviteUrl={inviteUrl} /><Button asChild variant="outline"><Link href="/#program">{t("seeProgram")} <span aria-hidden="true">↓</span></Link></Button></div>
+              <div className="mt-8 flex flex-wrap items-start gap-5">{registrationUrl && <RegistrationAction url={registrationUrl} label={t("register")} />}<DiscordAction inviteUrl={inviteUrl} variant={registrationUrl ? "outline" : "default"} /><Button asChild variant="outline"><Link href="/#program">{t("seeProgram")} <span aria-hidden="true">↓</span></Link></Button></div>
             </div>
           </div>
 
@@ -128,7 +132,7 @@ export const HomePage = async ({ inviteUrl, eventUrl }: { inviteUrl?: string; ev
         <div className={`${styles.grid} pointer-events-none absolute inset-0`} aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
           <div><TerminalRule /><h2 className="mt-8 max-w-[11ch] text-4xl leading-[1.08] tracking-[-.06em] sm:text-6xl">{t("programTitle")}</h2><p className="mt-7 max-w-[42ch] text-sm leading-7 text-muted sm:text-base">{t("programIntro")}</p><dl className="mt-7 text-sm leading-6"><dt className="sr-only">{t("firstEvent")}</dt><dd className="text-amber">{t("programWhen")}</dd><dd className="text-foreground">{t("programWhere")}</dd></dl>
-            {eventUrl && <Button asChild variant="outline" className="mt-8"><a href={eventUrl} target="_blank" rel="noopener noreferrer">{t("eventDetail")} <span aria-hidden="true">↗</span></a></Button>}</div>
+            {(registrationUrl || eventUrl) && <div className="mt-8 flex flex-wrap items-start gap-5">{registrationUrl && <RegistrationAction url={registrationUrl} label={t("register")} />}{eventUrl && <Button asChild variant="outline"><a href={eventUrl} target="_blank" rel="noopener noreferrer">{t("eventDetail")} <span aria-hidden="true">↗</span></a></Button>}</div>}</div>
           <ol className="border-t border-primary/50">
             {program.map((item) => (
               <li key={item.number} className={`${styles.row} ${styles.onView} grid gap-4 border-b border-primary/30 px-1 py-7 sm:grid-cols-[64px_1fr] sm:gap-7 sm:py-9`}>

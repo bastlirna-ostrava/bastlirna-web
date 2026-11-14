@@ -16,6 +16,8 @@ Do `DISCORD_INVITE_URL` v `.env.local` vložte pozvánku ve tvaru `https://disco
 
 Volitelně `EVENT_URL` (https odkaz na detail nejbližší akce, např. událost na Discordu). Bez něj se tlačítko „Detail akce“ v sekci programu nezobrazí.
 
+Volitelně `REGISTRATION_URL` (https odkaz na registraci na akci). S ním se v úvodu a v sekci programu zobrazí tlačítko „Registrace na setkání“ a tlačítko Discordu v úvodu přejde do obrysové varianty.
+
 ## Ověření
 
 ```bash
