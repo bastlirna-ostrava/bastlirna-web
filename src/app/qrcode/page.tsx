@@ -12,7 +12,7 @@ export const generateMetadata = async () => ({ title: (await getTranslations("qr
 
 export default async function QrCodePage() {
   const t = await getTranslations("qr");
-  const qr = await QRCode.toDataURL(SITE_URL, { errorCorrectionLevel: "H", margin: 2, width: 720, color: { dark: "#050807", light: "#FFFFFF" } });
+  const qr = await QRCode.toDataURL(SITE_URL, { errorCorrectionLevel: "H", margin: 2, width: 720, color: { dark: "#05080c", light: "#FFFFFF" } });
 
   return (
     <main className="min-h-screen bg-background text-foreground">

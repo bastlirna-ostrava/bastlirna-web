@@ -1,0 +1,148 @@
+{
+  "identity": {
+    "brandName": "Bastlírna Ostrava",
+    "legalName": "Bastlírna Ostrava (neformální komunita, bez právní subjektivity)",
+    "tagline": "Pojďme v Ostravě pravidelně stavět věci spolu.",
+    "description": "Bastlírna Ostrava je komunita lidí, kteří v Ostravě staví věci a chtějí se pravidelně potkávat nad vlastními projekty. Hardware, 3D tisk, software, DevOps, AI i design. Ukazujeme rozdělané věci, pomáháme si a učíme se od sebe.",
+    "mission": "Pravidelně dávat dohromady lidi z Ostravy, kteří něco staví, aby si mohli ukázat rozdělané projekty, pomoct si a učit se od sebe napříč obory.",
+    "vision": "Živá ostravská komunita bastlířů, která si podobu svých setkání i případného společného prostoru nebo labu vymyslí sama, až ho opravdu bude potřebovat.",
+    "foundingStory": "Bastlírna vznikla jako malý experiment: zkusit v Ostravě pravidelně potkávat lidi, kteří staví věci, a nechat komunitu, ať si sama určí další rytmus. Nejdřív lidé a projekty, prostor až potom.",
+    "values": [
+      "Nejdřív lidé a projekty",
+      "Rozdělané věci jsou vítané",
+      "Pomoc a sdílení know-how",
+      "Napříč obory",
+      "Otevřenost i pro začátečníky",
+      "Skromnost a pravdivost",
+      "Společné rozhodování o podobě komunity"
+    ],
+    "industry": "Komunita / maker space / technické meetupy",
+    "website": "https://bastlirna-ostrava.vantuch.dev",
+    "city": "Ostrava",
+    "country": "CZ",
+    "languages": ["cs"]
+  },
+  "strategy": {
+    "positioning": "Neformální, nízkoprahové setkávání ostravských bastlířů napříč obory. Není to firma, kurz ani hotová instituce, ale komunita, která si program a další kroky domlouvá sama na Discordu.",
+    "uniqueValueProposition": "Jedno místo, kde se v Ostravě potkají lidé z hardwaru, 3D tisku, vývoje, DevOps, AI i designu nad vlastními projekty. Hotová věc není podmínkou, stačí nápad.",
+    "goals": [
+      "Uskutečnit první setkání a domluvit pravidelný rytmus.",
+      "Dostat lidi z Ostravy a okolí na Discord jako hlavní kanál komunity.",
+      "Mít na každém setkání jednu až dvě krátké ukázky projektů.",
+      "Společně rozhodnout, zda a kdy má smysl řešit vlastní prostor nebo lab."
+    ],
+    "audiences": [
+      {
+        "name": "Bastlíři a makeři z Ostravy",
+        "description": "Lidé, kteří doma nebo v práci staví elektroniku, tisknou na 3D tiskárně, programují nebo navrhují, a chybí jim parta, se kterou to sdílet.",
+        "needs": ["Lidé se stejným koníčkem v Ostravě", "Zpětná vazba na rozdělané projekty", "Pomoc s konkrétním technickým problémem", "Motivace věci dotáhnout"],
+        "painPoints": ["Bastlí sami a nemají s kým projekt probrat", "Komunity jsou hlavně online nebo v jiných městech", "Pocit, že projekt není dost hotový na ukázání"]
+      },
+      {
+        "name": "Vývojáři, DevOps a AI lidé",
+        "description": "Softwaroví profesionálové i studenti, které zajímá přesah do hardwaru, automatizace a dalších oborů.",
+        "needs": ["Setkávání mimo firemní meetupy", "Přesah do HW a 3D tisku", "Sdílení side projektů"],
+        "painPoints": ["Meetupy bývají přednáškové a jednooborové", "Málo příležitostí ukázat side projekt"]
+      },
+      {
+        "name": "Studenti a začátečníci",
+        "description": "Lidé, kteří zatím mají jen nápad nebo s bastlením začínají a hledají, od koho se učit.",
+        "needs": ["Bezpečné prostředí pro otázky", "Inspirace z cizích projektů", "Kontakt na zkušenější lidi"],
+        "painPoints": ["Obava, že nemají co ukázat", "Nevědí, kde v Ostravě začít"]
+      }
+    ],
+    "competitors": [
+      "Jednooborové technické meetupy a přednáškové akce",
+      "Online komunity a fóra bez osobního setkávání",
+      "Makerspacy a fablaby v jiných městech",
+      "Školní a firemní kroužky"
+    ],
+    "differentiators": [
+      "Napříč obory: HW, 3D tisk, dev, DevOps, AI, design",
+      "Rozdělané projekty jsou vítané, hotové věci nejsou podmínkou",
+      "Program a směr určuje komunita, ne organizátor",
+      "Ostravská identita a dílenská, technická estetika"
+    ],
+    "brandPromises": [
+      "Nebudeme zveřejňovat čas ani místo, dokud nejsou potvrzené.",
+      "Nebudeme si vymýšlet čísla, partnery ani úspěchy.",
+      "Přijít může každý, i s pouhým nápadem.",
+      "Podobu Bastlírny vymyslíme společně."
+    ]
+  },
+  "voice": {
+    "tone": "Tykáme, mluvíme přímo a lidsky.\nKrátké věty, žádný marketingový patos.\nZveme, nepřesvědčujeme.\nSkromně a pravdivě: Bastlírna je malý experiment, ne hotová instituce.\nInkluzivně: hotový projekt není podmínkou.\nTechnický humor v míře, typicky příkazová řádka (např. $ ./pripojit --discord).",
+    "energy": 3,
+    "warmth": 4,
+    "formality": 1,
+    "personality": ["Přátelská", "Technická", "Skromná", "Zvídavá", "Hravá v míře", "Pravdivá", "Ostravská", "Otevřená"],
+    "vocabulary": ["bastlit", "stavět věci", "rozdělané projekty", "ukázka", "kolečko", "volná diskuse", "setkání", "komunita", "dílna", "HW", "3D tisk", "dev", "DevOps", "AI", "design", "Discord", "pomoct si", "učit se od sebe"],
+    "bannedTerms": ["revoluční", "unikátní", "jedinečný", "světová úroveň", "neopakovatelná příležitost", "nenech si ujít", "exkluzivní", "inovativní ekosystém", "hub", "networking event", "game-changer", "budoucnost je tady"],
+    "emojiPolicy": "Emoji střídmě nebo vůbec. Místo emoji používáme terminálové prvky: prompt > nebo $, hranaté závorky [ok], [01]. Nikdy emoji jako odrážky, žádné raketky, ohně ani peníze.",
+    "callsToAction": ["Přidej se na Discord", "Připoj se na Discord, i když máš zatím jen nápad.", "Podobu Bastlírny vymyslíme společně.", "Co bys chtěl stavět?", "Přijď ukázat, na čem děláš.", "$ ./pripojit --discord"],
+    "sampleCopy": "> ./bastlirna --mesto=ostrava\n\nPojďme v Ostravě pravidelně stavět věci spolu.\n\nPrvní setkání bude ve středu. Čas a místo upřesníme na Discordu.\n\nProgram:\n[01] kolečko – kdo jsme, co stavíme, s čím bychom si chtěli pomoct\n[02] ukázky projektů – jedna až dvě krátké, hotové věci nejsou podmínkou\n[03] volná diskuse – nápady, otázky, domluva dalšího setkání\n\nPřipoj se na Discord, i když máš zatím jen nápad.",
+    "grammarAndSpelling": "Pouze čeština, spisovně, ale neformálně (tykání).\nNadpisy větným stylem, na webu a v grafice malými písmeny, bez nadtitulků (eyebrow labels).\nNázev: „Bastlírna Ostrava“ v textu, „bastlírna_ostrava“ jen ve wordmarku a terminálových prvcích.\nKrátké odstavce, aktivní rod, minimum vykřičníků.\nNevymýšlet čísla členů, partnery, sponzory, citace ani termíny."
+  },
+  "visual": {
+    "logo": {
+      "primaryAsset": null,
+      "placement": "Značka (pixelový čip 16×16 s vyleptaným „b“, nožičkami po stranách a jantarovou značkou pinu 1) vlevo nahoře nebo jako samostatný avatar. Lockup = značka + wordmark „bastlírna_ostrava“ v IBM Plex Mono (bastlírna světle #F0F1ED, _ostrava zeleně #48ED13).",
+      "clearSpace": "Kolem značky alespoň 2 pixely mřížky loga (1/8 šířky značky) z každé strany.",
+      "minimumSize": "Značka min. 16 px (1 px = 1 buňka mřížky), doporučeně 32 px a více. Škálovat jen celými násobky, vždy nearest neighbour bez vyhlazování.",
+      "backgroundRules": "Primárně na černém pozadí #050807 nebo povrchu #0B110C. Jednobarevná zelená nebo jantarová verze je povolená. Na světlá a rušná pozadí logo nedávat.",
+      "misuse": ["Nedeformovat ani neotáčet", "Nevyhlazovat pixely ani neškálovat neceločíselně", "Nepřebarvovat mimo zelenou a jantarovou jednobarevnou verzi", "Žádné stíny, glow ani přechody", "Neměnit písmo wordmarku", "Nedávat na světlé nebo rušné pozadí"]
+    },
+    "colors": [
+      { "name": "Černá", "hex": "#050807", "role": "Background", "usage": "Hlavní pozadí všech materiálů. Převažující barva." },
+      { "name": "Povrch", "hex": "#0B110C", "role": "Surface", "usage": "Karty, okna editoru a terminálu, plochy čipů." },
+      { "name": "Zelená", "hex": "#48ED13", "role": "Primary", "usage": "Hlavní akcent: odkazy, prompt, spoje, tlačítka, _ostrava ve wordmarku." },
+      { "name": "Jasná zelená", "hex": "#67FF32", "role": "Accent", "usage": "Hover a aktivní stavy, signál běžící po spoji." },
+      { "name": "Tmavá zelená", "hex": "#246E16", "role": "Border", "usage": "Linky, rámečky, mřížka, neaktivní spoje." },
+      { "name": "Jantarová", "hex": "#F3B21B", "role": "Secondary", "usage": "Střídmě pro důležité informace (termín setkání), LED, pin 1 v logu." },
+      { "name": "Text", "hex": "#F0F1ED", "role": "Text", "usage": "Nadpisy a hlavní text na tmavém pozadí." },
+      { "name": "Tlumený text", "hex": "#A4ACA1", "role": "Muted", "usage": "Popisky, metadata, stavové řádky." }
+    ],
+    "typography": [
+      { "role": "Display / Headings", "family": "IBM Plex Mono", "weights": ["500", "600"], "sizes": "48–120 px", "lineHeight": "0.95", "usage": "Velké nadpisy malými písmeny, těsné prostrkání (cca -0,06 až -0,07 em). Bez nadtitulků." },
+      { "role": "Section headings", "family": "IBM Plex Mono", "weights": ["500"], "sizes": "24–40 px", "lineHeight": "1.1", "usage": "Větný styl / malá písmena, číslování v hranatých závorkách [01]." },
+      { "role": "Body", "family": "IBM Plex Mono", "weights": ["400"], "sizes": "16–18 px", "lineHeight": "1.6", "usage": "Krátké odstavce, text #F0F1ED, doplňky #A4ACA1." },
+      { "role": "Terminal / Labels", "family": "IBM Plex Mono", "weights": ["400", "500"], "sizes": "12–14 px", "lineHeight": "1.4", "usage": "Prompty (> a $), stavové řádky [ok], názvy souborů v titulkové liště okna, štítky témat." }
+    ],
+    "layout": {
+      "grid": "Jemná mřížka 48 px na černém pozadí. Obsah ve středovém kontejneru, asymetrické dvousloupcové kompozice (text + okno s obrázkem nebo deska plošného spoje).",
+      "spacing": "Základ 8 px; 8, 16, 24, 32, 48, 64, 96, 128 px. Velkorysé mezery mezi sekcemi.",
+      "density": "Nízká. Jedna hlavní zpráva na kompozici, hodně černé plochy.",
+      "borderRadius": "0 px. Všechno hranaté: tlačítka, okna, štítky, pady.",
+      "shadows": "Žádné stíny ani glow. Hloubku dělají jen 1px linky v #246E16 a plochy #0B110C."
+    },
+    "imagery": {
+      "photography": "Tmavé dílenské fotky (3D tiskárna, pájení, pracovní stůl, ostravské industriální pozadí s těžní věží), vždy převedené na ditherovaný pixel-art (Bayer 4×4) v paletě značky.",
+      "illustration": "Technické kresby: plošné spoje, čipy, sběrnice, piny, pady s popisky témat, tenké zelené linky na mřížce 48 px.",
+      "iconography": "Pixelové nebo lineární ikony 1–2 px v zelené, hranaté, bez výplní a přechodů.",
+      "composition": "Rámování jako okno editoru nebo terminálu: titulková lišta se třemi čtverečky, popisek souboru (např. dilna.png · 400×400 · dither=bayer4), stavový řádek [ok] tiskárna online.",
+      "lightingAndColorGrade": "Tmavé, kontrastní, převedené do omezené palety: černá, tmavě zelená, zelená, jantarová. Žádné přirozené barevné fotky.",
+      "doList": ["Ditherované obrázky v paletě značky", "Okna editoru a terminálu jako rámy", "Plošné spoje a čipy jako dekor", "Prompt nahoře, velký nadpis malými písmeny", "Jantarová jen pro to nejdůležitější", "Reálné projekty členů (se souhlasem)"],
+      "dontList": ["Přechody, stíny, glow, rozmazání", "Stockové fotky usměvavých lidí u notebooku", "Neonová cyberpunk estetika", "Zaoblené rohy a měkké karty", "Generované obrázky robotů a mozků", "Jiná písma než IBM Plex Mono"]
+    },
+    "accessibility": {
+      "contrast": "WCAG 2.2 AA. Text #F0F1ED i zelená #48ED13 na #050807 mají vysoký kontrast. Tmavou zelenou #246E16 nepoužívat pro text. Význam nikdy jen barvou.",
+      "motion": "Skokové terminálové animace (steps): psaní textu, odkrývání po řádcích, skenovací linka, signál po spoji, blikající LED a kurzor. Žádné plynulé floaty ani parallax. Respektovat prefers-reduced-motion a nic rychle neblikat.",
+      "altTextStyle": "Česky, věcně popsat obsah: např. „Pixelová ilustrace dílny: 3D tiskárna, lampa a pracovní stůl, v pozadí ostravská těžní věž.“ Dekorativní spoje a mřížky mají prázdný alt.",
+      "textMinimums": "Text min. 16 px, popisky min. 12 px. Na sociálních sítích držet text v bezpečné zóně."
+    }
+  },
+  "governance": {
+    "approvalProcess": "Každý obsah před zveřejněním schvaluje organizátor. Zkontrolovat fakta, termín a místo (jen potvrzené), funkčnost odkazů a souhlas lidí na fotkách a s ukázkami projektů. Nic se nepublikuje automaticky.",
+    "prohibitedClaims": ["Nezveřejňovat čas ani místo setkání, dokud nejsou potvrzené.", "Nevymýšlet počty členů, partnery, sponzory, citace ani úspěchy.", "Nevymýšlet ani nehádat odkaz na Discord, používat jen oficiální pozvánku.", "Netvrdit, že Bastlírna má vlastní prostor nebo lab."],
+    "requiredLegalText": ["Při focení na setkáních informovat účastníky a zveřejňovat jen se souhlasem.", "Při sběru osobních údajů odkázat na zásady ochrany osobních údajů."],
+    "trademark": "Názvy firem a produktů jen fakticky a ve správném tvaru. Neimplikovat partnerství ani podporu bez souhlasu. Logo Bastlírny neupravovat.",
+    "copyright": "Používat vlastní nebo licencované materiály. Projekty členů ukazovat jen s jejich souhlasem a s uvedením autora. IBM Plex Mono je pod licencí SIL OFL."
+  },
+  "social": {
+    "contentPillars": ["Setkání a program", "Projekty členů", "Dílna a know-how", "Ostrava a komunita", "Zákulisí Bastlírny"],
+    "hashtags": ["#bastlirna", "#ostrava", "#maker", "#3dtisk", "#hardware", "#bastleni", "#diy"],
+    "mentions": ["Discord Bastlírny Ostrava – hlavní kanál komunity", "Web bastlirna-ostrava.vantuch.dev", "Autoři projektů jen se souhlasem", "Nevymýšlet účty ani neoznačovat nesouvisející firmy"],
+    "platformNotes": "Instagram (stories, reels, příspěvky): černé pozadí, prompt nahoře (> ./bastlirna --mesto=ostrava), velký text malými písmeny, ditherovaný obrázek v okně editoru, jantarová pro termín. 0–5 hashtagů.\n\nDiscord: hlavní kanál. Oznámení krátce, tykání, termín a místo jen potvrzené.\n\nFacebook / LinkedIn: sdílení pozvánek na setkání a ukázek projektů, stejný vizuál, krátký text.\n\nVždy: čeština, výzva Přidej se na Discord, žádné vymyšlené detaily."
+  },
+  "customSections": []
+}

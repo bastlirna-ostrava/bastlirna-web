@@ -6,6 +6,7 @@ import { LogoMark } from "@/components/shared/logo-mark";
 import { DiscordAction } from "@/components/shared/discord-action";
 import { SiteHeader } from "@/components/shared/site-header";
 import { TerminalRule } from "@/components/shared/terminal-rule";
+import { Button } from "@/components/ui/button";
 import styles from "./home-page.module.css";
 
 const vars = (values: Record<string, string | number>) => values as CSSProperties;
@@ -22,10 +23,10 @@ const CircuitTrace = () => (
       {HERO_TRACES.map((d) => <path key={d} d={d} pathLength={1} className={styles.trace} />)}
       <path d="M205 125h-40M132 165h-30M77 249h-34" pathLength={1} className={styles.trace} />
     </g>
-    <g stroke="#48ed13" strokeWidth="2">
+    <g className="stroke-primary" strokeWidth="2">
       {HERO_TRACES.map((d, i) => <path key={d} d={d} pathLength={1} className={styles.signal} style={vars({ "--delay": `${1.6 + i * 0.9}s` })} />)}
     </g>
-    <g fill="#050807" stroke="currentColor"><circle cx="162" cy="119" r="4" /><circle cx="103" cy="165" r="4" /><circle cx="78" cy="249" r="4" /><circle cx="26" cy="337" r="4" /></g>
+    <g className="fill-background" stroke="currentColor"><circle cx="162" cy="119" r="4" /><circle cx="103" cy="165" r="4" /><circle cx="78" cy="249" r="4" /><circle cx="26" cy="337" r="4" /></g>
   </svg>
 );
 
@@ -45,34 +46,35 @@ const Board = ({ caption }: { caption: string }) => (
         {BOARD_PADS.map((pad) => <path key={pad.label} d={pad.d} pathLength={1} className={styles.traceOnView} />)}
         <path d="M180 214v40h-40M180 86V46h60" pathLength={1} className={styles.traceOnView} />
       </g>
-      <g stroke="#f3b21b" strokeWidth="2.5">
+      <g className="stroke-amber" strokeWidth="2.5">
         {BOARD_PADS.map((pad, i) => <path key={pad.label} d={pad.d} pathLength={1} className={styles.signal} style={vars({ "--delay": `${i * 0.7}s` })} />)}
       </g>
-      <rect x="120" y="86" width="120" height="128" fill="#0b110c" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="120" y="86" width="120" height="128" className="fill-surface" stroke="currentColor" strokeWidth="1.5" />
       {[0, 1, 2, 3, 4, 5].map((i) => <g key={i} fill="currentColor"><rect x="110" y={96 + i * 20} width="10" height="4" /><rect x="240" y={96 + i * 20} width="10" height="4" /></g>)}
       <text x="180" y="146" textAnchor="middle" fill="currentColor" fontFamily="var(--font-mono)" fontSize="14">BO-01</text>
-      <text x="180" y="166" textAnchor="middle" fill="#a4aca1" fontFamily="var(--font-mono)" fontSize="9">ostrava</text>
+      <text x="180" y="166" textAnchor="middle" className="fill-muted" fontFamily="var(--font-mono)" fontSize="9">ostrava</text>
       <rect x="130" y="96" width="6" height="6" fill="currentColor" />
       {BOARD_PADS.map((pad) => (
         <g key={pad.label}>
-          <rect x={pad.x - 20} y={pad.y - 14} width="40" height="28" stroke="currentColor" fill="#050807" />
-          <text x={pad.x} y={pad.y + 4} textAnchor="middle" fill="#f0f1ed" fontFamily="var(--font-mono)" fontSize="11">{pad.label}</text>
+          <rect x={pad.x - 20} y={pad.y - 14} width="40" height="28" stroke="currentColor" className="fill-background" />
+          <text x={pad.x} y={pad.y + 4} textAnchor="middle" className="fill-foreground" fontFamily="var(--font-mono)" fontSize="11">{pad.label}</text>
         </g>
       ))}
-      <rect x="132" y="248" width="12" height="12" fill="#f3b21b" className={styles.led} />
-      <rect x="236" y="40" width="12" height="12" fill="#48ed13" className={styles.led} style={vars({ "--delay": ".7s" })} />
+      <rect x="132" y="248" width="12" height="12" className={`fill-amber ${styles.led}`} />
+      <rect x="236" y="40" width="12" height="12" className={`fill-primary ${styles.led}`} style={vars({ "--delay": ".7s" })} />
     </svg>
     <figcaption className="mt-4 text-xs text-muted">{caption}</figcaption>
   </figure>
 );
 
-export const HomePage = async ({ inviteUrl }: { inviteUrl?: string }) => {
+export const HomePage = async ({ inviteUrl, eventUrl }: { inviteUrl?: string; eventUrl?: string }) => {
   const t = await getTranslations("home");
   const site = await getTranslations("site");
-  const program = [1, 2, 3].map((number) => ({
-    number,
-    title: t(`program${["One", "Two", "Three"][number - 1]}Title`),
-    text: t(`program${["One", "Two", "Three"][number - 1]}Text`),
+  const program = (["One", "Two", "Three", "Four"] as const).map((key, index) => ({
+    number: index + 1,
+    time: t(`program${key}Time`),
+    title: t(`program${key}Title`),
+    text: t(`program${key}Text`),
   }));
   const prompt = t("prompt");
   const topics = t("topics").split("|").map((topic) => topic.trim());
@@ -87,13 +89,13 @@ export const HomePage = async ({ inviteUrl }: { inviteUrl?: string }) => {
             <p className="text-xs text-primary sm:text-sm"><span aria-hidden="true">&gt; </span><span className={styles.prompt} style={vars({ "--chars": prompt.length })}>{prompt}</span></p>
             <h1 className="mt-8 text-[clamp(3.2rem,7vw,6.4rem)] leading-[.98] font-normal tracking-[-.07em]">
               <span className="block"><span className={styles.revealLine} style={vars({ "--chars": 9, "--delay": "1.3s" })}>{site("nameFirst")}</span></span>
-              <span className="block text-primary"><span className={styles.revealLine} style={vars({ "--chars": 7, "--delay": "1.85s" })}>{site("nameSecond")}</span><span className={styles.cursor} aria-hidden="true" /></span>
+              <span className="block text-primary"><span className={styles.revealLine} style={vars({ "--chars": 7, "--delay": "1.85s" })}>{site("nameSecond")}</span><span className={styles.cursor} style={vars({ "--delay": "2.4s" })} aria-hidden="true" /></span>
             </h1>
             <div className={styles.fadeIn} style={vars({ "--delay": "2.4s" })}>
               <p className="mt-8 max-w-[34ch] text-base leading-7 text-white sm:text-xl sm:leading-8">{t("intro")}</p>
               <p className="mt-7 text-sm leading-6 text-amber sm:text-base">{t("firstEvent")}</p>
               <p className="mt-1 max-w-[40ch] text-sm leading-6 text-white/70">{t("firstEventDetail")}</p>
-              <div className="mt-8 flex flex-wrap items-start gap-5"><DiscordAction inviteUrl={inviteUrl} /><Link href="/#program" className="inline-flex min-h-12 items-center gap-2 border-b border-primary/60 px-1 text-sm text-primary hover:border-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">{t("seeProgram")} <span aria-hidden="true">↓</span></Link></div>
+              <div className="mt-8 flex flex-wrap items-start gap-5"><DiscordAction inviteUrl={inviteUrl} /><Button asChild variant="outline"><Link href="/#program">{t("seeProgram")} <span aria-hidden="true">↓</span></Link></Button></div>
             </div>
           </div>
 
@@ -125,12 +127,13 @@ export const HomePage = async ({ inviteUrl }: { inviteUrl?: string }) => {
       <section id="program" className="relative scroll-mt-8 border-b border-primary/25 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className={`${styles.grid} pointer-events-none absolute inset-0`} aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
-          <div><TerminalRule /><h2 className="mt-8 max-w-[11ch] text-4xl leading-[1.08] tracking-[-.06em] sm:text-6xl">{t("programTitle")}</h2><p className="mt-7 max-w-[42ch] text-sm leading-7 text-muted sm:text-base">{t("programIntro")}</p><p className="mt-7 text-sm text-amber">{t("firstEvent")}</p></div>
+          <div><TerminalRule /><h2 className="mt-8 max-w-[11ch] text-4xl leading-[1.08] tracking-[-.06em] sm:text-6xl">{t("programTitle")}</h2><p className="mt-7 max-w-[42ch] text-sm leading-7 text-muted sm:text-base">{t("programIntro")}</p><dl className="mt-7 text-sm leading-6"><dt className="sr-only">{t("firstEvent")}</dt><dd className="text-amber">{t("programWhen")}</dd><dd className="text-foreground">{t("programWhere")}</dd></dl>
+            {eventUrl && <Button asChild variant="outline" className="mt-8"><a href={eventUrl} target="_blank" rel="noopener noreferrer">{t("eventDetail")} <span aria-hidden="true">↗</span></a></Button>}</div>
           <ol className="border-t border-primary/50">
             {program.map((item) => (
               <li key={item.number} className={`${styles.row} ${styles.onView} grid gap-4 border-b border-primary/30 px-1 py-7 sm:grid-cols-[64px_1fr] sm:gap-7 sm:py-9`}>
                 <span className="text-sm text-primary" aria-hidden="true">[0{item.number}]</span>
-                <div><h3 className={`${styles.rowTitle} text-xl leading-tight text-white sm:text-2xl`}>{item.title}</h3><p className="mt-3 max-w-[45ch] text-sm leading-7 text-muted">{item.text}</p></div>
+                <div><p className="mb-2 text-xs text-amber">{item.time}</p><h3 className={`${styles.rowTitle} text-xl leading-tight text-white sm:text-2xl`}>{item.title}</h3><p className="mt-3 max-w-[45ch] text-sm leading-7 text-muted">{item.text}</p></div>
               </li>
             ))}
           </ol>

@@ -7,7 +7,7 @@ Project-specific decisions:
 - This is a short Czech-only presentation site. Keep the implementation small and frontend-only.
 - The Discord invitation comes from `DISCORD_INVITE_URL`; never commit an actual invitation.
 - Event time and venue must be confirmed before they are published.
-- Use the supplied Canva presentation as the direct visual reference: black, bright green, amber, monospaced type, technical traces, and dark workshop imagery. The Raphe manual informs voice and accessibility; this project's visual identity follows the presentation. Headings use sentence case and no eyebrow labels.
+- Use the supplied Canva presentation as the direct visual reference: near-black, bright cyan (#2FD6FF, replaced the original green so the site stays distinct from a green/black competitor), amber, monospaced type, technical traces, and dark workshop imagery. The Raphe manual informs voice and accessibility; this project's visual identity follows the presentation. Headings use sentence case and no eyebrow labels.
 
 
 <!-- BEGIN:nextjs-agent-rules -->

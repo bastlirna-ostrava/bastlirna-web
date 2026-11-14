@@ -1,7 +1,7 @@
 /* Visual language: flat fills only (no gradients, no shadows). Motion is stepped like a terminal. */
 
 .grid {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M48 0H0v48' fill='none' stroke='%2348ed13' stroke-opacity='.06'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M48 0H0v48' fill='none' stroke='%232fd6ff' stroke-opacity='.06'/%3E%3C/svg%3E");
 }
 
 /* --- typing --- */
@@ -29,9 +29,13 @@
   margin-left: .08em;
   vertical-align: -.06em;
   background: var(--color-primary);
-  animation: blink 1.05s steps(1, end) infinite;
+  /* Stays hidden until the text before it has finished revealing (--delay), then blinks. */
+  visibility: hidden;
+  animation: cursorOn 0s var(--delay, 0ms) forwards, blink 1.05s steps(1, end) var(--delay, 0ms) infinite;
 }
+@keyframes cursorOn { to { visibility: visible; } }
 @keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cursor { visibility: visible; animation: none; } }
 
 .fadeIn {
   animation: stepIn 600ms steps(4, end) both;

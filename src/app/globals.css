@@ -2,14 +2,14 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #050807;
+  --color-background: #05080c;
   --color-foreground: #f0f1ed;
-  --color-primary: #48ed13;
-  --color-primary-strong: #67ff32;
-  --color-muted: #a4aca1;
+  --color-primary: #2fd6ff;
+  --color-primary-strong: #6fe4ff;
+  --color-muted: #a9b3bf;
   --color-amber: #f3b21b;
-  --color-border: #246e16;
-  --color-surface: #0b110c;
+  --color-border: #1c5a72;
+  --color-surface: #0b1219;
   --font-sans: "IBM Plex Mono", monospace;
   --font-mono: "IBM Plex Mono", monospace;
 }

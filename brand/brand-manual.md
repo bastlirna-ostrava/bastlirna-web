@@ -28,23 +28,23 @@ Lidé z Ostravy a okolí, kteří něco stavějí nebo chtějí stavět: elektro
 
 ## Logo
 - Značka: pixelový čip 16×16 s vyleptaným písmenem „b“, nožičkami po stranách a jantarovou značkou pinu 1.
-- Lockup: značka + wordmark „bastlírna_ostrava“ (bastlírna světle, _ostrava zeleně), písmo IBM Plex Mono.
+- Lockup: značka + wordmark „bastlírna_ostrava“ (bastlírna světle, _ostrava azurově), písmo IBM Plex Mono.
 - Vždy ostré pixely (nearest neighbour, žádné vyhlazování), škálovat jen celými násobky.
 - Ochranná zóna: alespoň 2 pixely mřížky loga kolem značky.
-- Na tmavém pozadí #050807. Logo nedeformovat, neotáčet, nepřebarvovat (kromě jednobarevné zelené nebo jantarové verze), nedávat mu stín ani přechod.
+- Na tmavém pozadí #05080C. Logo nedeformovat, neotáčet, nepřebarvovat (kromě jednobarevné azurové nebo jantarové verze), nedávat mu stín ani přechod.
 
 ## Barvy
 Ploché barvy, žádné přechody ani stíny.
-- Pozadí (černá): #050807
-- Povrch (tmavá plocha): #0B110C
-- Primární zelená: #48ED13
-- Zvýrazněná zelená: #67FF32
-- Linky / tmavá zelená: #246E16
+- Pozadí (černá do modra): #05080C
+- Povrch (tmavá plocha): #0B1219
+- Primární azurová: #2FD6FF
+- Zvýrazněná azurová: #6FE4FF
+- Linky / tmavá azurová: #1C5A72
 - Jantarová (akcent, termíny, LED): #F3B21B
 - Text: #F0F1ED
-- Tlumený text: #A4ACA1
+- Tlumený text: #A9B3BF
 
-Poměr: převážně černá, zelená jako hlavní akcent, jantarová střídmě pro důležité informace (např. termín setkání).
+Poměr: převážně černá, azurová jako hlavní akcent, jantarová střídmě pro důležité informace (např. termín setkání).
 
 ## Typografie
 - Jediné písmo: IBM Plex Mono (400, 500, 600). Záloha: jakékoli monospace.
@@ -52,8 +52,8 @@ Poměr: převážně černá, zelená jako hlavní akcent, jantarová střídmě
 - Terminálové prvky: prompt „>“ nebo „$“, blikající blokový kurzor, hranaté závorky [01].
 
 ## Obrazový styl
-- Tmavé dílenské fotografie (3D tiskárna, pájení, pracovní stůl, ostravské industriální pozadí – těžní věž) převedené na ditherovaný pixel-art (Bayer 4×4) v paletě značky: černá, tmavě zelená, zelená, jantarová.
-- Technické kresby: plošné spoje, čipy, sběrnice, mřížka 48 px, tenké zelené linky.
+- Tmavé dílenské fotografie (3D tiskárna, pájení, pracovní stůl, ostravské industriální pozadí – těžní věž) převedené na ditherovaný pixel-art (Bayer 4×4) v paletě značky: černá, tmavě azurová, azurová, jantarová.
+- Technické kresby: plošné spoje, čipy, sběrnice, mřížka 48 px, tenké azurové linky.
 - Rámování jako okno editoru/terminálu: titulková lišta se třemi čtverečky, popisek souboru, stavový řádek „[ok] …“.
 - Zakázáno: přechody, stíny, glow, rozmazání, stockové fotky usměvavých lidí u notebooku, neonová cyberpunk estetika.
 

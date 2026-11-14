@@ -1,5 +1,5 @@
 // 16×16 pixel mark: a chip with a "b" etched into it and an amber pin-1 marker.
-// g = green body/pins, a = amber, . = transparent. Keep in sync with src/app/icon.svg.
+// g = cyan (primary) body/pins, a = amber, . = transparent. Keep in sync with src/app/icon.svg.
 export const LOGO_GRID = [
   "................",
   "................",
@@ -19,7 +19,7 @@ export const LOGO_GRID = [
   "................",
 ];
 
-const COLORS = { g: "#48ed13", a: "#f3b21b" } as const;
+const COLORS = { g: "#2fd6ff", a: "#f3b21b" } as const;
 
 export const logoRects = () =>
   LOGO_GRID.flatMap((row, y) => {
