@@ -101,30 +101,11 @@
 
 .led { animation: blink 1.4s steps(1, end) infinite; animation-delay: var(--delay, 0ms); }
 
-/* --- program rows --- */
-.row { position: relative; transition: background-color 120ms steps(2, end); }
-.row:hover { background: var(--color-surface); }
-.row::before {
-  content: ">";
-  position: absolute;
-  left: -1.25rem;
-  top: 1.75rem;
-  color: var(--color-primary);
-  opacity: 0;
-}
-.row:hover::before { opacity: 1; animation: blink 1s steps(1, end) infinite; }
-.row:hover .rowTitle { color: var(--color-primary); }
-
 .tag { transition: background-color 80ms steps(1, end), color 80ms steps(1, end); }
 .tag:hover { background: var(--color-primary); color: var(--color-background); }
 
 /* Scroll-driven reveals where supported; content stays visible elsewhere. */
 @supports (animation-timeline: view()) {
-  .onView {
-    animation: viewIn linear both;
-    animation-timeline: view();
-    animation-range: entry 5% entry 70%;
-  }
   .traceOnView {
     stroke-dasharray: 1;
     animation: drawView linear both;
@@ -132,14 +113,10 @@
     animation-range: entry 0% entry 100%;
   }
 }
-@keyframes viewIn {
-  from { clip-path: inset(0 0 100% 0); opacity: 0; }
-  to { clip-path: inset(0 0 0 0); opacity: 1; }
-}
 @keyframes drawView { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .prompt, .revealLine, .fadeIn, .pixels, .trace, .onView, .traceOnView { animation: none; clip-path: none; stroke-dashoffset: 0; }
-  .cursor, .scanline, .signal, .led, .crosshair, .row:hover::before { animation: none; }
+  .prompt, .revealLine, .fadeIn, .pixels, .trace, .traceOnView { animation: none; clip-path: none; stroke-dashoffset: 0; }
+  .cursor, .scanline, .signal, .led, .crosshair { animation: none; }
   .scanline, .signal { display: none; }
 }

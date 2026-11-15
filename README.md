@@ -1,6 +1,6 @@
 # Bastlírna Ostrava
 
-Krátký web pro ostravskou komunitu lidí, kteří něco staví. Obsahuje úvodní stránku s programem a stránku `/qrcode`.
+Krátký web pro ostravskou komunitu lidí, kteří něco staví. Obsahuje úvodní stránku a stránku `/qrcode`.
 
 ## Spuštění
 
@@ -14,9 +14,9 @@ pnpm dev
 
 Do `DISCORD_INVITE_URL` v `.env.local` vložte pozvánku ve tvaru `https://discord.gg/...` nebo `https://discord.com/invite/...`. Bez platného odkazu stránka zobrazí informaci, že pozvánka přibude. Nasazení musí mít stejnou proměnnou prostředí.
 
-Volitelně `EVENT_URL` (https odkaz na detail nejbližší akce, např. událost na Discordu). Bez něj se tlačítko „Detail akce“ v sekci programu nezobrazí.
+Volitelně `EVENT_URL` (https odkaz na detail nejbližší akce, např. událost na Discordu). Bez něj se tlačítko „Detail akce“ v úvodu nezobrazí.
 
-Volitelně `REGISTRATION_URL` (https odkaz na registraci na akci). S ním se v úvodu a v sekci programu zobrazí tlačítko „Registrace na setkání“ a tlačítko Discordu v úvodu přejde do obrysové varianty.
+Volitelně `REGISTRATION_URL` (https odkaz na registraci na akci). S ním se v úvodu zobrazí tlačítko „Registrace na setkání“ a tlačítko Discordu v úvodu přejde do obrysové varianty.
 
 ## Ověření
 
