@@ -1,12 +1,12 @@
 {
   "site": {
-    "name": "Bastlírna Ostrava",
-    "nameFirst": "bastlírna",
-    "nameSecond": "ostrava",
+    "name": "Ostravská Bastlírna",
+    "nameFirst": "ostravská",
+    "nameSecond": "bastlírna",
     "description": "Komunita lidí, kteří v Ostravě staví věci a chtějí se potkávat nad vlastními projekty."
   },
   "nav": {
-    "homeLabel": "Bastlírna Ostrava – úvod",
+    "homeLabel": "Ostravská Bastlírna – úvod",
     "about": "O Bastlírně",
     "discord": "Přidat se na Discord",
     "qr": "QR kód",
@@ -19,23 +19,27 @@
     "windowAlt": "Pixelová ilustrace dílny: 3D tiskárna, lampa a pracovní stůl, v pozadí ostravská těžní věž.",
     "boardCaption": "rev 0.1",
     "footerPrompt": "./pripojit --discord",
-    "intro": "Pojďme v Ostravě pravidelně stavět věci spolu.",
-    "firstEvent": "první setkání ve středu 18. 11.",
-    "firstEventDetail": "18–21 h · Quest Lounge",
+    "intro": "Přijď pokecat, dát si pivo nebo ukázat, na čem děláš. Nic není povinné.",
+    "meetups": "pořádáme pravidelné meetupy",
+    "meetupsDetail": "vstup zdarma",
     "topics": "HW | 3D tisk | dev | DevOps | AI | design",
     "join": "Přidat se na Discord",
     "inviteMissing": "Pozvánku na Discord brzy doplníme.",
     "aboutTitle": "komunita verze 0.1",
-    "aboutText": "Bastlírna Ostrava je nová komunita lidí, kteří v Ostravě a okolí tvoří v oborech: hardware, 3D tisk, software, DevOps, AI i design. Chceme se pravidelně potkávat, ukazovat si rozdělané projekty, pomáhat si a učit se od sebe.",
+    "aboutText": "Ostravská Bastlírna je nová komunita lidí, kteří v Ostravě a okolí tvoří v oborech: hardware, 3D tisk, software, DevOps, AI i design. Chceme se pravidelně potkávat, ukazovat si rozdělané projekty, pomáhat si a učit se od sebe.",
     "footerTitle": "co bys chtěl stavět?",
     "footerText": "Podobu bastlírny vymyslíme společně. Připoj se na Discord, a přispěj svým nápadem.",
     "eventDetail": "Detail akce",
     "register": "Registrace na setkání"
   },
+  "events": {
+    "title": "následující akce",
+    "register": "Registrace na akci"
+  },
   "qr": {
     "pageTitle": "QR kód",
     "title": "bastlírna do telefonu",
-    "description": "Naskenuj kód a otevři web Bastlírny Ostrava.",
+    "description": "Naskenuj kód a otevři web Ostravské Bastlírny.",
     "url": "bastlirna-ostrava.vantuch.dev",
     "open": "otevřít web",
     "back": "zpět na úvod",

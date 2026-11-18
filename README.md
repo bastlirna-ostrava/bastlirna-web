@@ -1,4 +1,4 @@
-# Bastlírna Ostrava
+# Ostravská Bastlírna
 
 Krátký web pro ostravskou komunitu lidí, kteří něco staví. Obsahuje úvodní stránku a stránku `/qrcode`.
 

@@ -1,0 +1,38 @@
+import { getTranslations } from "next-intl/server";
+import { TerminalRule } from "@/components/shared/terminal-rule";
+import { Button } from "@/components/ui/button";
+import { events } from "@/data/events";
+
+const formatDate = (iso: string) =>
+  new Intl.DateTimeFormat("cs-CZ", { weekday: "long", day: "numeric", month: "numeric", timeZone: "UTC" }).format(new Date(`${iso}T00:00:00Z`));
+
+export const EventsSection = async () => {
+  const t = await getTranslations("events");
+  if (events.length === 0) return null;
+
+  return (
+    <section id="akce" className="scroll-mt-8 border-b border-primary/30 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        <TerminalRule />
+        <h2 className="mt-8 text-4xl leading-[1.1] tracking-[-.06em] sm:text-5xl">{t("title")}</h2>
+        <ol className="mt-12 border-t border-primary/30">
+          {events.map((event, i) => (
+            <li key={`${event.date}-${event.title}`} className="grid gap-4 border-b border-primary/30 py-6 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-8">
+              <span className="text-xs text-primary" aria-hidden="true">[{String(i + 1).padStart(2, "0")}]</span>
+              <div>
+                <p className="text-sm text-amber sm:text-base"><time dateTime={event.date}>{formatDate(event.date)}</time>{event.time && ` · ${event.time}`}</p>
+                <h3 className="mt-2 text-xl leading-tight sm:text-2xl">{event.title}</h3>
+                {event.place && <p className="mt-1 text-sm text-muted">{event.place}</p>}
+              </div>
+              {event.url && (
+                <Button asChild variant="outline">
+                  <a href={event.url} target="_blank" rel="noopener noreferrer">{t("register")} <span aria-hidden="true">↗</span></a>
+                </Button>
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+};

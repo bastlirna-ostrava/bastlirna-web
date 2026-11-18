@@ -6,6 +6,7 @@ import { DiscordAction } from "@/components/shared/discord-action";
 import { SiteHeader } from "@/components/shared/site-header";
 import { TerminalRule } from "@/components/shared/terminal-rule";
 import { Button } from "@/components/ui/button";
+import { EventsSection } from "./events-section";
 import styles from "./home-page.module.css";
 
 const vars = (values: Record<string, string | number>) => values as CSSProperties;
@@ -86,12 +87,12 @@ export const HomePage = async ({ inviteUrl, eventUrl, registrationUrl }: { invit
             <p className="text-xs text-primary sm:text-sm"><span aria-hidden="true">&gt; </span><span className={styles.prompt} style={vars({ "--chars": prompt.length })}>{prompt}</span></p>
             <h1 className="mt-8 text-[clamp(3.2rem,7vw,6.4rem)] leading-[.98] font-normal tracking-[-.07em]">
               <span className="block"><span className={styles.revealLine} style={vars({ "--chars": 9, "--delay": "1.3s" })}>{site("nameFirst")}</span></span>
-              <span className="block text-primary"><span className={styles.revealLine} style={vars({ "--chars": 7, "--delay": "1.85s" })}>{site("nameSecond")}</span><span className={styles.cursor} style={vars({ "--delay": "2.4s" })} aria-hidden="true" /></span>
+              <span className="block text-primary"><span className={styles.revealLine} style={vars({ "--chars": 9, "--delay": "1.85s" })}>{site("nameSecond")}</span><span className={styles.cursor} style={vars({ "--delay": "2.4s" })} aria-hidden="true" /></span>
             </h1>
             <div className={styles.fadeIn} style={vars({ "--delay": "2.4s" })}>
               <p className="mt-8 max-w-[34ch] text-base leading-7 text-white sm:text-xl sm:leading-8">{t("intro")}</p>
-              <p className="mt-7 text-sm leading-6 text-amber sm:text-base">{t("firstEvent")}</p>
-              <p className="mt-1 max-w-[40ch] text-sm leading-6 text-white/70">{t("firstEventDetail")}</p>
+              <p className="mt-7 text-sm leading-6 text-amber sm:text-base">{t("meetups")}</p>
+              <p className="mt-1 max-w-[40ch] text-sm leading-6 text-white/70">{t("meetupsDetail")}</p>
               <div className="mt-8 flex flex-wrap items-start gap-5">{registrationUrl && <RegistrationAction url={registrationUrl} label={t("register")} />}<DiscordAction inviteUrl={inviteUrl} variant={registrationUrl ? "outline" : "default"} />{eventUrl && <Button asChild variant="outline"><a href={eventUrl} target="_blank" rel="noopener noreferrer">{t("eventDetail")} <span aria-hidden="true">↗</span></a></Button>}</div>
             </div>
           </div>
@@ -109,7 +110,7 @@ export const HomePage = async ({ inviteUrl, eventUrl, registrationUrl }: { invit
             </div>
             <figcaption className={`${styles.windowBar} flex items-center justify-between gap-3 border-t border-b-0 px-3 py-2 text-[11px]`}>
               <span className="text-primary">{t("windowStatus")}</span>
-              <span className="text-amber" aria-hidden="true">49.83N 18.29E</span>
+              <span className="text-amber" aria-hidden="true">49.83N 18.25E</span>
             </figcaption>
           </figure>
         </div>
@@ -120,6 +121,8 @@ export const HomePage = async ({ inviteUrl, eventUrl, registrationUrl }: { invit
           </ul>
         </div>
       </section>
+
+      <EventsSection />
 
       <section id="o-bastlirne" className="scroll-mt-8 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
