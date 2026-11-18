@@ -16,7 +16,9 @@ Do `DISCORD_INVITE_URL` v `.env.local` vložte pozvánku ve tvaru `https://disco
 
 Volitelně `EVENT_URL` (https odkaz na detail nejbližší akce, např. událost na Discordu). Bez něj se tlačítko „Detail akce“ v úvodu nezobrazí.
 
-Volitelně `REGISTRATION_URL` (https odkaz na registraci na akci). S ním se v úvodu zobrazí tlačítko „Registrace na setkání“ a tlačítko Discordu v úvodu přejde do obrysové varianty.
+## Akce
+
+Akce se zapisují do `src/data/events.json` (typ `Event` v `src/data/events.ts`): `title`, `date` (`YYYY-MM-DD`), volitelně `start` a `end` (`HH:MM`, pražský čas), `place` a `url` (registrace). Sekce „následující akce“ ukazuje jen akce, které ještě neskončily, a tlačítko „Registrace na setkání“ v úvodu vede na nejbližší z nich. Stránka se obnovuje nejpozději minutu po konci akce; bez `end` se akce skryje po půlnoci.
 
 ## Ověření
 

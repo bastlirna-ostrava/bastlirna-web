@@ -1,12 +1,12 @@
 import { getTranslations } from "next-intl/server";
 import { TerminalRule } from "@/components/shared/terminal-rule";
 import { Button } from "@/components/ui/button";
-import { events } from "@/data/events";
+import { formatTime, type Event } from "@/data/events";
 
 const formatDate = (iso: string) =>
   new Intl.DateTimeFormat("cs-CZ", { weekday: "long", day: "numeric", month: "numeric", timeZone: "UTC" }).format(new Date(`${iso}T00:00:00Z`));
 
-export const EventsSection = async () => {
+export const EventsSection = async ({ events }: { events: Event[] }) => {
   const t = await getTranslations("events");
   if (events.length === 0) return null;
 
@@ -20,7 +20,7 @@ export const EventsSection = async () => {
             <li key={`${event.date}-${event.title}`} className="grid gap-4 border-b border-primary/30 py-6 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-8">
               <span className="text-xs text-primary" aria-hidden="true">[{String(i + 1).padStart(2, "0")}]</span>
               <div>
-                <p className="text-sm text-amber sm:text-base"><time dateTime={event.date}>{formatDate(event.date)}</time>{event.time && ` · ${event.time}`}</p>
+                <p className="text-sm text-amber sm:text-base"><time dateTime={event.date}>{formatDate(event.date)}</time>{formatTime(event) && ` · ${formatTime(event)}`}</p>
                 <h3 className="mt-2 text-xl leading-tight sm:text-2xl">{event.title}</h3>
                 {event.place && <p className="mt-1 text-sm text-muted">{event.place}</p>}
               </div>

@@ -6,6 +6,7 @@ import { DiscordAction } from "@/components/shared/discord-action";
 import { SiteHeader } from "@/components/shared/site-header";
 import { TerminalRule } from "@/components/shared/terminal-rule";
 import { Button } from "@/components/ui/button";
+import { getUpcomingEvents } from "@/data/events";
 import { EventsSection } from "./events-section";
 import styles from "./home-page.module.css";
 
@@ -71,7 +72,9 @@ const RegistrationAction = ({ url, label, className }: { url: string; label: str
   <Button asChild className={className}><a href={url} target="_blank" rel="noopener noreferrer">{label} <span aria-hidden="true">↗</span></a></Button>
 );
 
-export const HomePage = async ({ inviteUrl, eventUrl, registrationUrl }: { inviteUrl?: string; eventUrl?: string; registrationUrl?: string }) => {
+export const HomePage = async ({ inviteUrl, eventUrl }: { inviteUrl?: string; eventUrl?: string }) => {
+  const upcomingEvents = getUpcomingEvents();
+  const registrationUrl = upcomingEvents.find((event) => event.url)?.url;
   const t = await getTranslations("home");
   const site = await getTranslations("site");
   const prompt = t("prompt");
@@ -122,7 +125,7 @@ export const HomePage = async ({ inviteUrl, eventUrl, registrationUrl }: { invit
         </div>
       </section>
 
-      <EventsSection />
+      <EventsSection events={upcomingEvents} />
 
       <section id="o-bastlirne" className="scroll-mt-8 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
