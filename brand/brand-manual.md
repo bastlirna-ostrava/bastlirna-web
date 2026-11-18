@@ -13,7 +13,7 @@ Lidé z Ostravy a okolí, kteří něco stavějí nebo chtějí stavět: elektro
 
 ## Hlas a tón
 - Tykáme, mluvíme přímo a lidsky. Krátké věty, žádný marketingový patos.
-- Zveme, nepřesvědčujeme: „Pojďme v Ostravě pravidelně stavět věci spolu.“
+- Zveme, nepřesvědčujeme: „Přijď pokecat, dát si pivo nebo ukázat, na čem děláš. Nic není povinné.“
 - Skromně a pravdivě: Bastlírna je „malý experiment“, ne hotová instituce.
 - Inkluzivně: „i když máš zatím jen nápad“.
 - Technický humor je vítaný v míře – příkazová řádka, `$ ./pripojit --discord`.

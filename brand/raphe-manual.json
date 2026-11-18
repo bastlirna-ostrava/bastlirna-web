@@ -2,7 +2,7 @@
   "identity": {
     "brandName": "Bastlírna Ostrava",
     "legalName": "Bastlírna Ostrava (neformální komunita, bez právní subjektivity)",
-    "tagline": "Pojďme v Ostravě pravidelně stavět věci spolu.",
+    "tagline": "Přijď pokecat, dát si pivo nebo ukázat, na čem děláš. Nic není povinné.",
     "description": "Bastlírna Ostrava je komunita lidí, kteří v Ostravě staví věci a chtějí se pravidelně potkávat nad vlastními projekty. Hardware, 3D tisk, software, DevOps, AI i design. Ukazujeme rozdělané věci, pomáháme si a učíme se od sebe.",
     "mission": "Pravidelně dávat dohromady lidi z Ostravy, kteří něco staví, aby si mohli ukázat rozdělané projekty, pomoct si a učit se od sebe napříč obory.",
     "vision": "Živá ostravská komunita bastlířů, která si podobu svých setkání i případného společného prostoru nebo labu vymyslí sama, až ho opravdu bude potřebovat.",
@@ -80,7 +80,7 @@
     "bannedTerms": ["revoluční", "unikátní", "jedinečný", "světová úroveň", "neopakovatelná příležitost", "nenech si ujít", "exkluzivní", "inovativní ekosystém", "hub", "networking event", "game-changer", "budoucnost je tady"],
     "emojiPolicy": "Emoji střídmě nebo vůbec. Místo emoji používáme terminálové prvky: prompt > nebo $, hranaté závorky [ok], [01]. Nikdy emoji jako odrážky, žádné raketky, ohně ani peníze.",
     "callsToAction": ["Přidej se na Discord", "Připoj se na Discord, i když máš zatím jen nápad.", "Podobu Bastlírny vymyslíme společně.", "Co bys chtěl stavět?", "Přijď ukázat, na čem děláš.", "$ ./pripojit --discord"],
-    "sampleCopy": "> ./bastlirna --mesto=ostrava\n\nPojďme v Ostravě pravidelně stavět věci spolu.\n\nPrvní setkání bude ve středu. Čas a místo upřesníme na Discordu.\n\nProgram:\n[01] kolečko – kdo jsme, co stavíme, s čím bychom si chtěli pomoct\n[02] ukázky projektů – jedna až dvě krátké, hotové věci nejsou podmínkou\n[03] volná diskuse – nápady, otázky, domluva dalšího setkání\n\nPřipoj se na Discord, i když máš zatím jen nápad.",
+    "sampleCopy": "> ./bastlirna --mesto=ostrava\n\nPřijď pokecat, dát si pivo nebo ukázat, na čem děláš. Nic není povinné.\n\nPrvní setkání bude ve středu. Čas a místo upřesníme na Discordu.\n\nProgram:\n[01] kolečko – kdo jsme, co stavíme, s čím bychom si chtěli pomoct\n[02] ukázky projektů – jedna až dvě krátké, hotové věci nejsou podmínkou\n[03] volná diskuse – nápady, otázky, domluva dalšího setkání\n\nPřipoj se na Discord, i když máš zatím jen nápad.",
     "grammarAndSpelling": "Pouze čeština, spisovně, ale neformálně (tykání).\nNadpisy větným stylem, na webu a v grafice malými písmeny, bez nadtitulků (eyebrow labels).\nNázev: „Bastlírna Ostrava“ v textu, „bastlírna_ostrava“ jen ve wordmarku a terminálových prvcích.\nKrátké odstavce, aktivní rod, minimum vykřičníků.\nNevymýšlet čísla členů, partnery, sponzory, citace ani termíny."
   },
   "visual": {
