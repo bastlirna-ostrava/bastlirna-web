@@ -14,6 +14,8 @@ pnpm dev
 
 Do `DISCORD_INVITE_URL` v `.env.local` vložte pozvánku ve tvaru `https://discord.gg/...` nebo `https://discord.com/invite/...`. Bez platného odkazu stránka zobrazí informaci, že pozvánka přibude. Nasazení musí mít stejnou proměnnou prostředí.
 
+Volitelně `GITHUB_URL` (odkaz ve tvaru `https://github.com/...`, např. `https://github.com/ostravska-bastlirna`). Ikona GitHubu v navigaci se zobrazí jen s platným odkazem; ikona Discordu vedle ní používá `DISCORD_INVITE_URL`.
+
 Volitelně `EVENT_URL` (https odkaz na detail nejbližší akce, např. událost na Discordu). Bez něj se tlačítko „Detail akce“ v úvodu nezobrazí.
 
 ## Akce
